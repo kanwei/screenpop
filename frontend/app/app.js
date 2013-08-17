@@ -24,7 +24,7 @@ app.controller('DashboardCtrl', function ($scope, incomingContacts) {
 });
 
 app.factory('canonicalParser', function () {
-  var sources = {
+  var canonicalMap = {
     'tourbuzz': {
       name: 'name',
       email: 'email',
@@ -49,7 +49,7 @@ app.factory('canonicalParser', function () {
     parse: function (contact, source) {
       var info = {}
 
-      _(sources[source]).forEach(function (prop, key) {
+      _(canonicalMap[source]).forEach(function (prop, key) {
         info[key] = contact[source][prop];
       });
 

@@ -28,9 +28,12 @@
   background-color: rgba($color-timing-alert, 1);
   border: 1px solid darken($color-timing-alert, 10%);
   cursor: pointer;
+  @include rem('font-size',16px);
+  font-weight: 200;
   list-style-type: none;
   padding: .6em;
   margin-bottom: .6em;
+  text-align: center;
   @include customTransition();
 
   &:first-of-type {
@@ -69,8 +72,12 @@
 
 // <h1> user name
 .call__username {
-  font-size: 16px;
+}
+
+// <h2> user name
+.call__company {
+  @include rem('font-size',12px);
   font-weight: 200;
-  text-align: center;
+  letter-spacing: .1em;
   margin-bottom: .6em;
 }

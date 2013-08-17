@@ -28,7 +28,9 @@ app.controller('DashboardCtrl', function ($scope, incomingContacts) {
   };
 });
 
-app.factory('canonicalParser', function () {
+// Extracts canonical info from a contact.
+// Won't be needed if the data source handles that for us.
+app.factory('canonicalParser', function ($parse) {
   var canonicalMap = {
     'tourbuzz': {
       name: 'name',
@@ -36,17 +38,17 @@ app.factory('canonicalParser', function () {
       company: 'company',
       image: 'logo'
     },
-    'twilio': {
-      name: '??',
-      email: '??',
-      company: '??',
-      image: '??'
+    'fullcontact': {
+      name: 'contactInfo.fullName',
+      email: '',
+      company: '',
+      image: ''
     },
-    'zendesk': {
-      name: '??',
-      email: '??',
-      company: '??',
-      image: '??'
+    'twilio': {
+      name: 'name',
+      email: 'email',
+      company: 'company',
+      image: 'logo'
     }
   };
 
@@ -55,7 +57,7 @@ app.factory('canonicalParser', function () {
       var info = {}
 
       _(canonicalMap[source]).forEach(function (prop, key) {
-        info[key] = contact[source][prop];
+        info[key] = $parse(prop)(contact[source]);
       });
 
       return info;
@@ -63,9 +65,11 @@ app.factory('canonicalParser', function () {
   };
 });
 
+// Polls/fetches incoming contacts
 app.factory('incomingContacts', function ($http, $timeout, canonicalParser) {
   var incomingContacts = [],
-    canonicalSource = 'tourbuzz';
+    canonicalSource = 'tourbuzz',
+    pollFrequency = 2000;
 
   function processContact (contact, id) {
     return _({id: id, sources: contact}).extend(canonicalParser.parse(contact, canonicalSource));
@@ -78,7 +82,7 @@ app.factory('incomingContacts', function ($http, $timeout, canonicalParser) {
       }).map(processContact);
     });
 
-    $timeout(poll, 2000);
+    $timeout(poll, pollFrequency);
   })();
 
   return {

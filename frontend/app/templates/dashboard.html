@@ -3,8 +3,12 @@
 <menu class="incoming-calls">
 
   <article class="call" ng-repeat='contact in incomingContacts' ng-click='selectContact(contact)'>
+
     <h1 class="call__username">{{ contact.name }}</h1>
-    <img class="call__image" ng-src='{{ contact.image }}' />
+    <h2 class="call__company">{{ contact.company }}</h2>
+
+    <img class="call__image" ng-if="contact.image" ng-src='{{ contact.image }}' alt="{{ contact.company }}" />
+
   </article>
 
 </menu>

@@ -1,12 +1,16 @@
 <h1>Dashboard</h1>
 
 <div class="incoming-calls">
+
   <ul class="calls">
     <li class="calls__call" ng-repeat='contact in incomingContacts'>
-      {{ contact.name }}
-      <img ng-src='{{ contact.image }}' />
+      <article class="call__user">
+        {{ contact.name }}
+        <img class="user__logo" ng-src='{{ contact.image }}' />
+      </article>
     </li>
   </ul>
+
 </div>
 
 <div class="tourbuzz">

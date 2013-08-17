@@ -50,7 +50,7 @@ app.factory('incomingContacts', function ($http, $timeout) {
       incomingContacts = _(resp.data).map(processContact);
     });
 
-    $timeout(poll, 2000);
+    //$timeout(poll, 2000);
   }
 
   poll();

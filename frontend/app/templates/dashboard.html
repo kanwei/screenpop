@@ -10,13 +10,5 @@
 </menu>
 
 <div class="sources">
-
-  <section ng-repeat="(name, source) in activeContact.sources" ng-class="name">
-    <h1>{{ name }}</h1>
-
-    <pre>
-      {{ source | json }}
-    </pre>
-  </section>
-
+  <section ng-repeat="(name, source) in activeContact.sources" ng-include="'sources/' + name + '.html'" ng-class="name"></section>
 </div>

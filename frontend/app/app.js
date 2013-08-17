@@ -45,18 +45,16 @@ app.factory('incomingContacts', function ($http, $timeout) {
     return _({id: id, sources: contact}).extend(canonicalInfo(contact));
   }
 
-  function poll () {
+  (function poll () {
     $http.get('http://alan.dev.tourbuzz.net/data').then(function (resp) {
       incomingContacts = _(resp.data).map(processContact);
     });
 
     $timeout(poll, 2000);
-  }
-
-  poll();
+  })();
 
   return {
-    all: function() {
+    all: function () {
       return incomingContacts;
     }
   };

@@ -9,21 +9,9 @@
   </ul>
 </div>
 
-<section class='tourbuzz'>
-	<h1>TourBuzz</h1>
-	<pre>
-	  {{ activeContact.sources.tourbuzz | json }}
-	</pre>
-</section>
-<section class='fullContact'>
-	<h1>Full Contact</h1>
-	<pre>
-	  {{ activeContact.sources.fullcontact | json }}
-	</pre>
-</section>
-<section class='twilio'>
-	<h1>Twilio</h1>
-	<pre>
-	  {{ activeContact.sources.twilio | json }}
-	</pre>
+<section ng-repeat="(name, source) in activeContact.sources" ng-class="name">
+  <h1>{{ name }}</h1>
+  <pre>
+    {{ source | json }}
+  </pre>
 </section>

@@ -38,10 +38,10 @@ app.factory('canonicalParser', function ($parse) {
       image: ''
     },
     'twilio': {
-      name: '',
-      email: '',
-      company: '',
-      image: ''
+      name: 'name',
+      email: 'email',
+      company: 'company',
+      image: 'logo'
     }
   };
 

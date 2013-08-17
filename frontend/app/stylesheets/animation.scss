@@ -1,0 +1,57 @@
+.fade-in {
+  @include transition(all 0.4s);
+  opacity: 0;
+}
+
+.fade-in.fade-in-active {
+  opacity: 1;
+}
+
+.fade-out {
+  @include transition(all 0.4s);
+  opacity: 1;
+}
+
+.fade-out.fade-out-active {
+  opacity: 0;
+}
+
+.slide-in-left {
+  @extend .fade-in;
+  @include transform(translate3d(-100%, 0, 0));
+}
+
+.slide-in-left.slide-in-left-active {
+  @extend .fade-in-active;
+  @include transform(translate3d(0, 0, 0));
+}
+
+.slide-out-left {
+  @extend .fade-in;
+  @include transform(translate3d(0, 0, 0));
+}
+
+.slide-out-left.slide-out-left-active {
+  @extend .fade-in-active;
+  @include transform(translate3d(-100%, 0, 0));
+}
+
+.slide-in-top {
+  @extend .fade-in;
+  @include transform(translate3d(0, -100%, 0));
+}
+
+.slide-in-top.slide-in-top-active {
+  @extend .fade-in-active;
+  @include transform(translate3d(0, 0, 0));
+}
+
+.slide-out-top {
+  @extend .fade-in;
+  @include transform(translate3d(0, 0, 0));
+}
+
+.slide-out-top.slide-out-top-active {
+  @extend .fade-in-active;
+  @include transform(translate3d(0, -100%, 0));
+}

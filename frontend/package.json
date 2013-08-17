@@ -1,0 +1,28 @@
+{
+  "name": "screenpop-frontend",
+  "description": "",
+  "version": "0.0.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kanwei/screenpop.git"
+  },
+  "author": "",
+  "contributors": [
+    "Scott Christopherson <scott@scott-christopherson.com>",
+    "Benjamin Charity <ben@benjamincharity.co.uk.net.biz.org.gov.xxx",
+    "Add your name here yo <mmmmm@yummy.com>"
+  ],
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-angular-templates": "~0.3.10",
+    "grunt-contrib-sass": "~0.4.1",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-watch": "~0.5.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "express": "~3.3.5",
+    "http-proxy": "~0.10.3",
+    "grunt-contrib-compass": "~0.5.0"
+  }
+}

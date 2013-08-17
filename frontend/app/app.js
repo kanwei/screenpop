@@ -17,6 +17,10 @@ app.controller('DashboardCtrl', function ($scope, incomingContacts) {
   $scope.$watch(incomingContacts.all, function (contacts) {
     $scope.incomingContacts = contacts;
   });
+
+  $scope.selectContact = function (contact) {
+    $scope.activeContact = contact;
+  };
 });
 
 app.factory('incomingContacts', function ($http, $timeout) {

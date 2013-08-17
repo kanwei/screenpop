@@ -63,7 +63,8 @@ app.factory('canonicalParser', function ($parse) {
 // Polls/fetches incoming contacts
 app.factory('incomingContacts', function ($http, $timeout, canonicalParser) {
   var incomingContacts = [],
-    canonicalSource = 'tourbuzz';
+    canonicalSource = 'tourbuzz',
+    pollFrequency = 2000;
 
   function filterContacts (contact) {
     return ! _(contact[canonicalSource]).isUndefined();
@@ -78,7 +79,7 @@ app.factory('incomingContacts', function ($http, $timeout, canonicalParser) {
       incomingContacts = _(resp.data).filter(filterContacts).map(processContact);
     });
 
-    $timeout(poll, 2000);
+    $timeout(poll, pollFrequency);
   })();
 
   return {

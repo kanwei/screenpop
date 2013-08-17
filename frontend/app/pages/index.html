@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app='screenpop'>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -14,39 +14,7 @@
 </head>
 <body>
 
-  <div class="window">
-
-    <div class="incoming-calls">
-      <ul class="calls">
-        <li class="calls__call">
-          <p>Joe Blow</p>
-          <p>Acme Engineering</p>
-        </li>
-        <li class="calls__call">
-          <p>Marco Sandusky</p>
-          <p>Acme Cleaning</p>
-        </li>
-        <li class="calls__call  is_active">
-          <p>Stevie Nicks</p>
-          <p>Acme Booty Shake Co.</p>
-        </li>
-      </ul>
-    </div>
-
-    <section class="tourbuzz">
-      <h1>Tourbuzz</h1>
-    </section>
-
-    <section class="twilio">
-      <h1>Twilio</h1>
-    </section>
-
-    <section class="blank">
-      <h1>Blank</h1>
-    </section>
-
-  </div>
-
+  <div ng-view></div>
 
   <script src="/javascripts/app.js"></script>
 

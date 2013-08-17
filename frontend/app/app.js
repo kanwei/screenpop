@@ -62,15 +62,17 @@ app.factory('incomingContacts', function ($http, $timeout, canonicalParser) {
   var incomingContacts = [],
     canonicalSource = 'tourbuzz';
 
+  function filterContacts (contact) {
+    return ! _(contact[canonicalSource]).isUndefined();
+  }
+
   function processContact (contact, id) {
     return _({id: id, sources: contact}).extend(canonicalParser.parse(contact, canonicalSource));
   }
 
   (function poll () {
     $http.get('http://alan.dev.tourbuzz.net/data').then(function (resp) {
-      incomingContacts = _(resp.data).filter(function (contact) {
-        return ! _(contact[canonicalSource]).isUndefined();
-      }).map(processContact);
+      incomingContacts = _(resp.data).filter(filterContacts).map(processContact);
     });
 
     $timeout(poll, 2000);

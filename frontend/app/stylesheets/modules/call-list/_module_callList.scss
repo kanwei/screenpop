@@ -12,24 +12,22 @@
 // @end
 
 
-// <div> container for incoming support tickets
+// <menu> container for incoming support tickets
 .incoming-calls {
   @include col();
   margin-bottom: 2%;
   position: absolute;
-  right: 2px;
-  top: 2%;
+  right: .2em;
+  top: .2em;
   // override grid
   float: none;
 }
 
-// <ul> list of current support calls
-.calls {
-}
-
-// <li> individual call container
-.calls__call {
-  border: 1px solid $color-gray;
+// <article> individual call container
+.call {
+  background-color: rgba($color-timing-alert, 1);
+  border: 1px solid darken($color-timing-alert, 10%);
+  cursor: pointer;
   list-style-type: none;
   padding: .6em;
   margin-bottom: .6em;
@@ -39,27 +37,40 @@
     @include first();
   }
 
-  &.is_active {
-    border: 1px solid green;
-  }
+  //&.is_active {
+    //border: 1px solid darken($color-timing-alert, 10%);
+  //}
 
-  &:nth-of-type(1) {
-    background-color: rgba($color-timing-alert, 1);
-  }
+  //&:nth-of-type(1) {
+    //box-shadow: 0 0 4px 0 rgba(0,0,0,0.8);
+    //border-color: darken($color-timing-alert, 20%);
+  //}
 
   &:nth-of-type(2) {
-    background-color: rgba(lighten($color-timing-alert, 20%), 1);
+    background-color: lighten($color-timing-alert, 10%);
+    border-color: lighten($color-timing-alert, 0%);
   }
 
   &:nth-of-type(3) {
-    background-color: rgba(lighten($color-timing-alert, 40%), 1);
+    background-color: lighten($color-timing-alert, 20%);
+    border-color: lighten($color-timing-alert, 10%);
   }
 
   &:nth-of-type(4) {
-    background-color: rgba(lighten($color-timing-alert, 60%), 1);
+    background-color: lighten($color-timing-alert, 30%);
+    border-color: lighten($color-timing-alert, 20%);
   }
 
   &:nth-of-type(5) {
-    background-color: rgba(lighten($color-timing-alert, 80%), 1);
+    background-color: lighten($color-timing-alert, 40%);
+    border-color: lighten($color-timing-alert, 30%);
   }
+}
+
+// <h1> user name
+.call__username {
+  font-size: 16px;
+  font-weight: 200;
+  text-align: center;
+  margin-bottom: .6em;
 }

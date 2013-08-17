@@ -1,15 +1,16 @@
 <h1>Dashboard</h1>
 
-<div class="incoming-calls">
-  <ul class="calls">
-    <li class="calls__call" ng-repeat='contact in incomingContacts' ng-click='selectContact(contact)'>
-      {{ contact.name }}
-      <img ng-src='{{ contact.image }}' />
-    </li>
-  </ul>
-</div>
+<menu class="incoming-calls">
+
+  <article class="call" ng-repeat='contact in incomingContacts' ng-click='selectContact(contact)'>
+    <h1 class="call__username">{{ contact.name }}</h1>
+    <img class="call__image" ng-src='{{ contact.image }}' />
+  </article>
+
+</menu>
 
 <div class="sources">
+
   <section ng-repeat="(name, source) in activeContact.sources" ng-class="name">
     <h1>{{ name }}</h1>
 
@@ -17,4 +18,5 @@
       {{ source | json }}
     </pre>
   </section>
+
 </div>

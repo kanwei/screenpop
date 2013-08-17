@@ -35,7 +35,7 @@ body {
   @include col();
   margin-bottom: 2%;
   position: absolute;
-  right: 2%;
+  right: 2px;
   top: 2%;
   // override grid
   float: none;
@@ -90,6 +90,11 @@ body {
 
 // <section> twilio container
 .twilio {
+  @extend %container;
+}
+
+// <section> fullContact
+.fullContact {
   @extend %container;
 }
 

@@ -9,6 +9,21 @@
   </ul>
 </div>
 
-<pre>
-  {{ activeContact }}
-</pre>
+<section class='tourbuzz'>
+	<h1>TourBuzz</h1>
+	<pre>
+	  {{ activeContact.sources.tourbuzz | json }}
+	</pre>
+</section>
+<section class='fullContact'>
+	<h1>Full Contact</h1>
+	<pre>
+	  {{ activeContact.sources.fullcontact | json }}
+	</pre>
+</section>
+<section class='twilio'>
+	<h1>Twilio</h1>
+	<pre>
+	  {{ activeContact.sources.twilio | json }}
+	</pre>
+</section>

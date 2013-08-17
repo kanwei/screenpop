@@ -13,7 +13,7 @@
 
 // base styles for containers arounds difference data sources
 %container {
-  @include col(2);
+  @include col(1.6666666);
   border: 1px solid $color-gray;
   padding: .6em;
 }

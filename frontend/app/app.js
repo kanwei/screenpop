@@ -23,7 +23,7 @@ app.controller('DashboardCtrl', function ($scope, incomingContacts) {
   };
 });
 
-app.factory('canonicalParser', function () {
+app.factory('canonicalParser', function ($parse) {
   var canonicalMap = {
     'tourbuzz': {
       name: 'name',
@@ -31,17 +31,17 @@ app.factory('canonicalParser', function () {
       company: 'company',
       image: 'logo'
     },
-    'twilio': {
-      name: '??',
-      email: '??',
-      company: '??',
-      image: '??'
+    'fullcontact': {
+      name: 'contactInfo.fullName',
+      email: '',
+      company: '',
+      image: ''
     },
-    'zendesk': {
-      name: '??',
-      email: '??',
-      company: '??',
-      image: '??'
+    'twilio': {
+      name: '',
+      email: '',
+      company: '',
+      image: ''
     }
   };
 
@@ -50,7 +50,7 @@ app.factory('canonicalParser', function () {
       var info = {}
 
       _(canonicalMap[source]).forEach(function (prop, key) {
-        info[key] = contact[source][prop];
+        info[key] = $parse(prop)(contact[source]);
       });
 
       return info;

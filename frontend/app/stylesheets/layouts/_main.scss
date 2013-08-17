@@ -20,6 +20,57 @@ body {
 
 // <div> containing element
 .window {
-
+  @include row();
+  padding: .6em;
 }
 
+
+%container {
+  @include col(2);
+  border: 1px solid $color-gray;
+  padding: .6em;
+}
+
+
+
+// <div> container for incoming support tickets
+.incoming-calls {
+  margin-bottom: 2%;
+}
+
+// <ul> list of current support calls
+.calls {
+  @include row();
+}
+
+.calls__call {
+  @include col();
+  border: 1px solid $color-gray;
+  list-style-type: none;
+  padding: .6em;
+  @include customTransition();
+
+  &:first-of-type {
+    @include first();
+  }
+
+  &.is_active {
+    border: 1px solid green;
+  }
+}
+
+// <section> tourbuzz container
+.tourbuzz {
+  @extend %container;
+  @include first();
+}
+
+// <section> twilio container
+.twilio {
+  @extend %container;
+}
+
+// <section> empty container
+.blank {
+  @extend %container;
+}

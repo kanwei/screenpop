@@ -179,21 +179,21 @@ $col_total_width: $col_width + $col_margin;
 @mixin span($n: 1) {
   width: ($n * $col_width) + (($n - 1) * $col_margin);
   @if $n == $columns {
-    margin-right: 0;
+    margin-left: 0;
   }
   @else {
-    margin-right: $col_margin;
+    margin-left: $col_margin;
   }
 }
 
-// the last column in a row needs this
-@mixin last() {
-  margin-right: 0;
+// the first column in a row needs this
+@mixin first() {
+  margin-left: 0;
 }
 
-// if you need to overwrite a previous `last()`, use this
-@mixin resetLast() {
-  margin-right: $col_margin;
+// if you need to overwrite a previous `first()`, use this
+@mixin resetFirst() {
+  margin-left: $col_margin;
 }
 
 // prepend n blank columns
@@ -204,4 +204,13 @@ $col_total_width: $col_width + $col_margin;
 // append n blank columns
 @mixin append($n: 1) {
   margin-right: $col_total_width * $n + $col_margin
+}
+
+
+@mixin last() {
+  zoom: 1;
+}
+
+@mixin resetLast() {
+  zoom: .9;
 }

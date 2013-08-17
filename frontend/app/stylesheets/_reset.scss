@@ -97,20 +97,20 @@ a {
 // 4. Prevent iOS text size adjust after orientation change, without disabling
 //    user zoom.
 //
-//html {
-  //background: #fff; /* 1 */
-  //color: #000; /* 2 */
-  //font-family: sans-serif; /* 3 */
-  //-ms-text-size-adjust     : 100%; /* 4 */
-  //-webkit-text-size-adjust : 100%; /* 4 */
-//}
+html {
+  background: #fff; /* 1 */
+  color: #000; /* 2 */
+  font-family: sans-serif; /* 3 */
+  -ms-text-size-adjust     : 100%; /* 4 */
+  -webkit-text-size-adjust : 100%; /* 4 */
+}
 
 //
 // Remove default margin.
 //
-//body {
-  //margin: 0;
-//}
+body {
+  margin: 0;
+}
 
 //
 // Address margin not present in IE 8/9 and Safari 5.

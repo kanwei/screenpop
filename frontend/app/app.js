@@ -74,7 +74,7 @@ app.factory('incomingContacts', function ($http, $timeout, canonicalParser) {
   }
 
   (function poll () {
-    $http.get('http://alan.dev.tourbuzz.net/data').then(function (resp) {
+    $http.get('http://kanwei.com:9999/data').then(function (resp) {
       incomingContacts = _(resp.data).filter(filterContacts).map(processContact);
     });
 

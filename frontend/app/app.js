@@ -23,30 +23,47 @@ app.controller('DashboardCtrl', function ($scope, incomingContacts) {
   };
 });
 
-app.factory('incomingContacts', function ($http, $timeout) {
+app.factory('canonicalParser', function () {
+  var sources = {
+    'tourbuzz': {
+      name: 'name',
+      email: 'email',
+      company: 'company',
+      image: 'logo'
+    },
+    'twilio': {
+      name: '??',
+      email: '??',
+      company: '??',
+      image: '??'
+    },
+    'zendesk': {
+      name: '??',
+      email: '??',
+      company: '??',
+      image: '??'
+    }
+  };
+
+  return {
+    parse: function (contact, source) {
+      var info = {}
+
+      _(sources[source]).forEach(function (prop, key) {
+        info[key] = contact[source][prop];
+      });
+
+      return info;
+    }
+  };
+});
+
+app.factory('incomingContacts', function ($http, $timeout, canonicalParser) {
   var incomingContacts = [],
-    canonical = {
-      source: 'tourbuzz',
-      props: {
-        name: 'name',
-        email: 'email',
-        company: 'company',
-        image: 'logo'
-      }
-    };
-
-  function canonicalInfo (contact) {
-    var info = {};
-
-    _(canonical.props).forEach(function (prop, key) {
-      info[key] = contact[canonical.source][prop];
-    });
-
-    return info;
-  }
+    canonicalSource = 'tourbuzz';
 
   function processContact (contact, id) {
-    return _({id: id, sources: contact}).extend(canonicalInfo(contact));
+    return _({id: id, sources: contact}).extend(canonicalParser.parse(contact, canonicalSource));
   }
 
   (function poll () {

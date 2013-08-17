@@ -28,12 +28,12 @@
         "OK")
   (POST "/twilio" {params :params}
         (saveCustomerDataForInboundEvent (params "CallGuid") "twilio" params)
-        (tourbuzz {:phoneNumber (params "Caller")}
+        (tourbuzz {:phone (params "Caller")}
                   (fn [d]
+                    (saveCustomerDataForInboundEvent (params "CallGuid") "tourbuzz" d)
                     (fullcontact (d "email")
                                  (fn [fd]
-                                   (saveCustomerDataForInboundEvent (params "CallGuid") "fullcontact" fd)))
-                    (saveCustomerDataForInboundEvent (params "CallGuid") "twilio" d)))
+                                   (saveCustomerDataForInboundEvent (params "CallGuid") "fullcontact" fd)))))
         (slurp (clojure.java.io/resource "call.xml")))
   (GET "/data" [] {:body @users})
   (route/resources "/"))

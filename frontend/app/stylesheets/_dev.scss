@@ -1,0 +1,31 @@
+//
+//
+//
+// $DEV
+//
+//
+// @author Benjamin Charity <ben@benjamincharity.com>
+//
+// @doc
+//  This stylesheet adds the body pseudo elements to show which
+//  media query is currently active.
+// @end
+
+
+$border-size: 8px;
+
+@include breakpoint($breakpoint-small) {
+  border-top: $border-size solid red;
+}
+
+@include breakpoint($breakpoint-medium) {
+  border-top: $border-size solid yellow;
+}
+
+@include breakpoint($breakpoint-large) {
+  border-top: $border-size solid green;
+}
+
+@include breakpoint($breakpoint-very-large) {
+  border-top: $border-size solid blue;
+}

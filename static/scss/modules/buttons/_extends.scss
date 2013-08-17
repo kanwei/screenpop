@@ -1,0 +1,39 @@
+//
+//
+//
+// $EXTENDS
+//
+//
+// @author Benjamin Charity <ben@benjamincharity.com>
+//
+// @doc
+//  Define all extends and silent placeholders for this module.
+//
+//  USAGE:
+//
+//    .foo {
+//      @extend %lightblue;
+//    }
+//
+// @end
+
+
+// base button styles
+%button {
+  border: .094em solid;
+  @include border-radius(.625em);
+  box-shadow: 0 .375em .313em -.313em rgba($color-black,.8), inset 0 .063em $color-white, inset 0 -.188em rgba($color-black,.15);
+  color: $color-white;
+  cursor: pointer;
+  display: inline-block;
+  font: bold 1em sans-serif;
+  margin: 1rem;
+  padding: .938em 1.875em;
+  text-decoration: none;
+  text-transform: uppercase;
+  @include customTransition();
+}
+
+%lightblue {
+  @include btn-theme(#ADD8E6);
+}

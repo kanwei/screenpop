@@ -1,0 +1,32 @@
+//
+//
+//
+// $FUNCTIONS
+//
+//
+// @author Benjamin Charity <ben@benjamincharity.com>
+//
+// @doc
+//  Define all functions specific to this module.
+// @end
+
+
+// Simply pass in a color and the various button states are generated.
+
+// USAGE (creating an extend):
+//   %lightblue {
+//     @include btn-theme(#ADD8E6);
+//   }
+
+
+
+@mixin btn-theme($btn-color) {
+  border-color: darken($btn-color, 20%);
+  background-color: $btn-color;
+
+  &:active,
+  &:hover {
+    background-color: darken($btn-color, 6%);
+    box-shadow: 0 .125em $color-white, inset 0 .063em $color-white, inset 0 -.188em lighten($btn-color, 2%);
+  }
+}

@@ -1,0 +1,32 @@
+//
+//
+//
+// $EXTENDS
+//
+//
+// @author Benjamin Charity <ben@benjamincharity.com>
+//
+// @doc
+//  Define all extends and silent placeholders for this module.
+//
+//  USAGE:
+//
+//    %lightBlue {
+//      color: skyblue;
+//      opacity: 1;
+//    }
+//
+//    .foo {
+//      @extend %lightBlue;
+//    }
+//
+//  OUTPUT:
+//
+//    .foo {
+//      color: skyblue;
+//      opacity: 1;
+//    }
+//
+// @end
+
+

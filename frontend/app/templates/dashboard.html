@@ -1,22 +1,14 @@
 <h1>Dashboard</h1>
 
 <div class="incoming-calls">
-
   <ul class="calls">
-    <li class="calls__call" ng-repeat='contact in incomingContacts'>
-      <article class="call__user">
-        {{ contact.name }}
-        <img class="user__logo" ng-src='{{ contact.image }}' />
-      </article>
+    <li class="calls__call" ng-repeat='contact in incomingContacts' ng-click='selectContact(contact)'>
+      {{ contact.name }}
+      <img ng-src='{{ contact.image }}' />
     </li>
   </ul>
-
 </div>
 
-<div class="tourbuzz">
-  <h1>Tourbuzz</h1>
-</div>
-
-<div class="twilio">
-  <h1>Twilio</h1>
-</div>
+<pre>
+  {{ activeContact }}
+</pre>

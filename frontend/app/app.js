@@ -21,6 +21,11 @@ app.controller('DashboardCtrl', function ($scope, incomingContacts) {
   $scope.selectContact = function (contact) {
     $scope.activeContact = contact;
   };
+
+  $scope.formatTourBuzz = function (name) { 
+    alert('yee-haw!');
+    return name == "tourbuzz"; 
+  };
 });
 
 app.factory('canonicalParser', function () {
@@ -62,17 +67,15 @@ app.factory('incomingContacts', function ($http, $timeout, canonicalParser) {
   var incomingContacts = [],
     canonicalSource = 'tourbuzz';
 
-  function filterContacts (contact) {
-    return ! _(contact[canonicalSource]).isUndefined();
-  }
-
   function processContact (contact, id) {
     return _({id: id, sources: contact}).extend(canonicalParser.parse(contact, canonicalSource));
   }
 
   (function poll () {
-    $http.get('http://alan.dev.tourbuzz.net/data').then(function (resp) {
-      incomingContacts = _(resp.data).filter(filterContacts).map(processContact);
+    $http.get('http://kanwei.com:9999/data').then(function (resp) {
+      incomingContacts = _(resp.data).filter(function (contact) {
+        return ! _(contact[canonicalSource]).isUndefined();
+      }).map(processContact);
     });
 
     $timeout(poll, 2000);

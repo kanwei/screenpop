@@ -1,0 +1,33 @@
+
+//
+//
+//
+// $HEADER
+//
+//
+// @author Benjamin Charity <ben@benjamincharity.com>
+//
+// @doc
+//  __documentation__
+// @end
+
+
+// <div> the content
+.tourbuzz__tour {
+	@include row();
+	border:1px solid #e3e3e3;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 9px 0;
+}
+
+// <span> display title
+.tour__title {
+	@include col(5);
+	@include first();
+}
+
+// <a> edit link
+.tour__edit {
+	@include col(1);
+}

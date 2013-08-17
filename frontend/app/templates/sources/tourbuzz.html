@@ -1,5 +1,6 @@
 <h1>Tourbuzz</h1>
 
-<pre>
-  {{ source | json }}
-</pre>
+<div class="tourbuzz__tour" ng-repeat='tour in source.recentTours' ng-required='tour.displayTitle'>
+	<span class="tour__title">{{ tour.displayTitle }} </span>
+	<a href="{{ tour.editUrl }}" class="tour__edit" target="tourbuzz">edit</a>
+</div>

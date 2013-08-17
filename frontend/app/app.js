@@ -23,6 +23,8 @@ app.controller('DashboardCtrl', function ($scope, incomingContacts) {
   };
 });
 
+// Extracts canonical info from a contact.
+// Won't be needed if the data source handles that for us.
 app.factory('canonicalParser', function ($parse) {
   var canonicalMap = {
     'tourbuzz': {
@@ -58,6 +60,7 @@ app.factory('canonicalParser', function ($parse) {
   };
 });
 
+// Polls/fetches incoming contacts
 app.factory('incomingContacts', function ($http, $timeout, canonicalParser) {
   var incomingContacts = [],
     canonicalSource = 'tourbuzz';

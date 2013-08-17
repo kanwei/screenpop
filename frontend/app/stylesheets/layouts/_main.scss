@@ -30,57 +30,6 @@ body {
 
 
 
-// <div> container for incoming support tickets
-.incoming-calls {
-  @include col();
-  margin-bottom: 2%;
-  position: absolute;
-  right: 2px;
-  top: 2%;
-  // override grid
-  float: none;
-}
-
-// <ul> list of current support calls
-.calls {
-}
-
-// <li> individual call container
-.calls__call {
-  border: 1px solid $color-gray;
-  list-style-type: none;
-  padding: .6em;
-  margin-bottom: .6em;
-  @include customTransition();
-
-  &:first-of-type {
-    @include first();
-  }
-
-  &.is_active {
-    border: 1px solid green;
-  }
-
-  &:nth-of-type(1) {
-    background-color: rgba($color-timing-alert, 1);
-  }
-
-  &:nth-of-type(2) {
-    background-color: rgba(lighten($color-timing-alert, 20%), 1);
-  }
-
-  &:nth-of-type(3) {
-    background-color: rgba(lighten($color-timing-alert, 40%), 1);
-  }
-
-  &:nth-of-type(4) {
-    background-color: rgba(lighten($color-timing-alert, 60%), 1);
-  }
-
-  &:nth-of-type(5) {
-    background-color: rgba(lighten($color-timing-alert, 80%), 1);
-  }
-}
 
 // <section> tourbuzz container
 .tourbuzz {

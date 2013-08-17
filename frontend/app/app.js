@@ -68,7 +68,9 @@ app.factory('incomingContacts', function ($http, $timeout, canonicalParser) {
 
   (function poll () {
     $http.get('http://alan.dev.tourbuzz.net/data').then(function (resp) {
-      incomingContacts = _(resp.data).map(processContact);
+      incomingContacts = _(resp.data).filter(function (contact) {
+        return ! _(contact[canonicalSource]).isUndefined();
+      }).map(processContact);
     });
 
     $timeout(poll, 2000);

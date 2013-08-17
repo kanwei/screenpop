@@ -1,0 +1,20 @@
+//
+//
+//
+// $GLOBAL_EXTENDS
+//
+//
+// @author Benjamin Charity <ben@benjamincharity.com>
+//
+// @doc
+//  Extends that need to be accessed from multiple modules
+// @end
+
+
+// base styles for containers arounds difference data sources
+%container {
+  @include col(2);
+  border: 1px solid $color-gray;
+  padding: .6em;
+}
+

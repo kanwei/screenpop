@@ -25,11 +25,6 @@ body {
 }
 
 
-%container {
-  @include col(2);
-  border: 1px solid $color-gray;
-  padding: .6em;
-}
 
 
 
